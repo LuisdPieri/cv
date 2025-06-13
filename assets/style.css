@@ -114,12 +114,25 @@
             margin-top: -70px;
         }
 
+        
         @media (max-width: 600px) {
+          /* 1) Force o menu a sair do flex e virar um bloco rolável */
           #menu-fixo {
-            overflow-x: auto;       /* ativa o scroll */
-            white-space: nowrap;    /* evita quebras de linha */
-            padding: 10px;          /* mantém um pouco de espaçamento */
+            display: block;              /* deixa de ser flexbox */
+            overflow-x: auto;            /* barra de scroll horizontal */
+            -webkit-overflow-scrolling: touch; /* scroll suave no iOS */
+            white-space: nowrap;         /* sem quebras de linha */
+            padding: 8px 0;              /* ajeita o espaçamento */
           }
+        
+          /* 2) Links inline-block para ficarem lado-a-lado e serem tocáveis */
+          #menu-fixo a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 0 4px;
+            white-space: normal;         /* permite quebrar o texto caso seja longo */
+          }
+        }
           #menu-fixo a {
             display: inline-block;  /* cada link é um bloco inline para o scroll */
             flex: 0 0 auto;         /* não encolhe nem cresce no flex */
