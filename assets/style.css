@@ -1,0 +1,115 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            color: #333333;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+            padding-top: 40px;
+        }
+
+        .titulo {
+            color: #1d5e86;
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 4px;
+            margin-top: 10px;
+        }
+
+        hr {
+            margin-top: 4px;
+        }
+
+        h4 {
+            margin-bottom: 4px;
+        }
+
+        h3 {
+            color: #1d5e86;
+            font-size: 20px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 4px;
+        }
+
+        p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .int p {
+            text-align: center;
+        }
+
+        .ital {
+            font-family: Arial, sans-serif;
+            font-style: italic;
+        }
+
+        .botao {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 10px;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        body.darkmode {
+            background-color: #121212;
+        }
+
+        body.darkmode h1,
+        body.darkmode h2,
+        body.darkmode h3,
+        body.darkmode h4,
+        body.darkmode p {
+            color: #f1f1f1;
+        }
+
+        body.darkmode #menu-fixo {
+            background-color: #121212;
+            border-bottom: 1px solid #444;
+        }
+        
+        body.darkmode #menu-fixo a {
+            color: #f1f1f1;
+        }
+        
+        body.darkmode #menu-fixo a:hover {
+            color: #90caf9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #menu-fixo {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        #menu-fixo a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        #menu-fixo a:hover {
+            color: #0077cc;
+        }
+
+        #inicio {
+            height: 70px;
+            margin-top: -70px;
+        }
