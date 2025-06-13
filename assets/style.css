@@ -113,3 +113,24 @@
             height: 70px;
             margin-top: -70px;
         }
+
+        @media (max-width: 600px) {
+          #menu-fixo {
+            overflow-x: auto;       /* ativa o scroll */
+            white-space: nowrap;    /* evita quebras de linha */
+            padding: 10px;          /* mantém um pouco de espaçamento */
+          }
+          #menu-fixo a {
+            display: inline-block;  /* cada link é um bloco inline para o scroll */
+            flex: 0 0 auto;         /* não encolhe nem cresce no flex */
+            margin-right: 16px;     /* espaçamento entre itens */
+          }
+          /* (opcional) esconde a barra de scroll em WebKit */
+          #menu-fixo::-webkit-scrollbar {
+            height: 6px;
+          }
+          #menu-fixo::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+          }
+        }
