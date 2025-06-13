@@ -20,21 +20,31 @@ document.getElementById("baixar-cv").addEventListener("click", () => {
       scale: 2,
       useCORS: true,
       onclone: (clonedDoc) => {
+        // Garante light-mode no PDF
         clonedDoc.body.classList.remove("darkmode");
       }
     },
     jsPDF:    { unit: "in", format: "a4", orientation: "portrait" },
-    pagebreak: {
-      mode:  ["css", "legacy"],
-      avoid: ["section", "h3"]
-    }
+    pagebreak:{ mode:["css","legacy"], avoid:["section","h3"] }
   };
 
-  html2pdf()
-    .set(opt)
-    .from(element)
-    .save();
+  // 1) Gera o blob do PDF
+  html2pdf().set(opt).from(element).output('blob')
+    .then(pdfBlob => {
+      // 2) Cria URL e link <a> com download
+      const blobUrl = URL.createObjectURL(pdfBlob);
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = opt.filename;
+      document.body.appendChild(a);
+      a.click();
+      // 3) Limpeza
+      document.body.removeChild(a);
+      URL.revokeObjectURL(blobUrl);
+    })
+    .catch(err => console.error('Erro ao gerar PDF:', err));
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const secoes = [
