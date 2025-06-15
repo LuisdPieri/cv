@@ -1,27 +1,3 @@
-        :root {
-          --modal-bg:        #ffffff;
-          --modal-text:      #000000;
-          --modal-btn-bg:    #28a745;
-          --modal-btn-text:  #ffffff;
-        }
-
-        body.darkmode {
-          --modal-bg:        #2c2c2c;
-          --modal-text:      #f1f1f1;
-          --modal-btn-bg:    #4caf50;
-          --modal-btn-text:  #ffffff;
-        }
-
-        .modal-content {
-          background: var(--modal-bg);
-          color: var(--modal-text);
-        }
-
-        .modal-content button {
-          background: var(--modal-btn-bg);
-          color: var(--modal-btn-text);
-        }    
-
         body {
             font-family: Arial, sans-serif;
             margin: 10px;
@@ -104,10 +80,6 @@
             color: #90caf9;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         #menu-fixo {
             position: fixed;
             left: 0;
@@ -120,13 +92,6 @@
             justify-content: center;
             gap: 20px;
             z-index: 1000;
-        }
-
-        #menu-fixo a {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: bold;
         }
 
         #menu-fixo a:hover {
@@ -147,18 +112,18 @@
             white-space: nowrap;    
             padding: 8px 0;    
           }
+        } 
         
           #menu-fixo a {
             display: inline-block;
             padding: 8px 12px;
-            margin: 0 4px;
-            white-space: normal;       
-          }
-        }
-          #menu-fixo a {
-            display: inline-block;
-            flex: 0 0 auto;     
-            margin-right: 16px;    
+            margin: 0 16px 0 4px;
+            white-space: normal; 
+            flex: 0 0 auto;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;    
           }
 
           #menu-fixo::-webkit-scrollbar {
@@ -169,34 +134,58 @@
             border-radius: 3px;
           }
 
-          .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-          }
+        :root {
+          --modal-bg:        #ffffff;
+          --modal-text:      #000000;
+          --modal-btn-bg:    #28a745;
+          --modal-btn-text:  #ffffff;
+        }
 
-          .modal-content {
-            background: #fff;
-            padding: 20px;
-            margin: 0 20px;
-            border-radius: 8px;
-            max-width: 90%;
-            text-align: center;
-          }
+        .modal {
+          display: none;
+          position: fixed;
+          inset: 0;          
+          background: rgba(0,0,0,0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 10000;
+        }
 
-          .modal-content p {
-            margin-bottom: 20px;
-          }
+        .modal-content {
+          background: var(--modal-bg);
+          color: var(--modal-text);
+          padding: 20px;
+          margin: 0 20px;
+          border-radius: 8px;
+          max-width: 90%;
+          text-align: center;
+        }
 
-          .modal-content button {
-            padding: 8px 16px;
-            font-size: 14px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-          }
+        .modal-content p {
+          margin-bottom: 20px;
+          color: var(--modal-text);
+        }
+
+        .modal-content button {
+          padding: 8px 16px;
+          font-size: 14px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          background: var(--modal-btn-bg);
+          color: var(--modal-btn-text);
+        }
+        
+        body.darkmode .modal-content {
+          background: var(--modal-bg) !important;
+        }
+
+        body.darkmode .modal-content p {
+          color: var(--modal-text) !important;
+        }
+
+        body.darkmode .modal-content button {
+          background: var(--modal-btn-bg) !important;
+          color: var(--modal-btn-text) !important;
+        }
