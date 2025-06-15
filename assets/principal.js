@@ -10,7 +10,17 @@ btnToggle.addEventListener('click', () => {
   localStorage.setItem('darkmode', document.body.classList.contains('darkmode'));
 });
 
-document.getElementById("baixar-cv").addEventListener("click", () => {
+const modal      = document.getElementById('mobile-modal');
+const modalOk    = document.getElementById('modal-ok');
+const baixarBtn  = document.getElementById('baixar-cv');
+
+baixarBtn.addEventListener('click', event => {
+  if (window.innerWidth <= 600) {
+    event.preventDefault();
+    modal.style.display = 'flex';
+    return;   
+  }
+
   const element = document.getElementById("curriculo");
   const opt = {
     margin:   0.5,
@@ -19,32 +29,35 @@ document.getElementById("baixar-cv").addEventListener("click", () => {
     html2canvas: { 
       scale: 2,
       useCORS: true,
-      onclone: (clonedDoc) => {
-        // Garante light-mode no PDF
-        clonedDoc.body.classList.remove("darkmode");
-      }
+      onclone: clonedDoc => clonedDoc.body.classList.remove("darkmode")
     },
     jsPDF:    { unit: "in", format: "a4", orientation: "portrait" },
     pagebreak:{ mode:["css","legacy"], avoid:["section","h3"] }
-  };
+   };
 
-  // 1) Gera o blob do PDF
   html2pdf().set(opt).from(element).output('blob')
     .then(pdfBlob => {
-      // 2) Cria URL e link <a> com download
       const blobUrl = URL.createObjectURL(pdfBlob);
       const a = document.createElement('a');
       a.href = blobUrl;
       a.download = opt.filename;
       document.body.appendChild(a);
       a.click();
-      // 3) Limpeza
       document.body.removeChild(a);
       URL.revokeObjectURL(blobUrl);
     })
     .catch(err => console.error('Erro ao gerar PDF:', err));
 });
 
+  modalOk.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const secoes = [

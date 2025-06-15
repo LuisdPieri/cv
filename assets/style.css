@@ -1,3 +1,27 @@
+        :root {
+          --modal-bg:        #ffffff;
+          --modal-text:      #000000;
+          --modal-btn-bg:    #28a745;
+          --modal-btn-text:  #ffffff;
+        }
+
+        body.darkmode {
+          --modal-bg:        #2c2c2c;
+          --modal-text:      #f1f1f1;
+          --modal-btn-bg:    #4caf50;
+          --modal-btn-text:  #ffffff;
+        }
+
+        .modal-content {
+          background: var(--modal-bg);
+          color: var(--modal-text);
+        }
+
+        .modal-content button {
+          background: var(--modal-btn-bg);
+          color: var(--modal-btn-text);
+        }    
+
         body {
             font-family: Arial, sans-serif;
             margin: 10px;
@@ -145,14 +169,34 @@
             border-radius: 3px;
           }
 
-          @media (max-width: 600px) {
-            #baixar-cv {
-              display: none !important;
-            }
+          .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
           }
-          
-          @media (min-width: 601px) {
-            #baixar-cv {
-              display: inline-block; 
-            }
+
+          .modal-content {
+            background: #fff;
+            padding: 20px;
+            margin: 0 20px;
+            border-radius: 8px;
+            max-width: 90%;
+            text-align: center;
+          }
+
+          .modal-content p {
+            margin-bottom: 20px;
+          }
+
+          .modal-content button {
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
           }
