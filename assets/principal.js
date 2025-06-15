@@ -32,7 +32,9 @@ baixarBtn.addEventListener('click', event => {
       onclone: clonedDoc => clonedDoc.body.classList.remove("darkmode")
     },
     jsPDF:    { unit: "in", format: "a4", orientation: "portrait" },
-    pagebreak:{ mode:["css","legacy"], avoid:["section","h3"] }
+    pagebreak: {
+      mode: ["css","legacy"]
+    }
    };
 
   html2pdf().set(opt).from(element).output('blob')

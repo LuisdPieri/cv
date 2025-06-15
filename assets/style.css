@@ -176,7 +176,7 @@
           background: var(--modal-btn-bg);
           color: var(--modal-btn-text);
         }
-        
+
         body.darkmode .modal-content {
           background: var(--modal-bg) !important;
         }
@@ -189,3 +189,26 @@
           background: var(--modal-btn-bg) !important;
           color: var(--modal-btn-text) !important;
         }
+
+        h3 {
+          page-break-after: avoid;
+          break-after: avoid-page;
+        }
+
+        h3 + p,
+        h3 + ul,
+        h3 + ol {
+          page-break-before: avoid;
+          break-before: avoid-page;
+        }
+
+        ul, ol {
+          page-break-inside: auto;
+          break-inside: auto;
+        }
+
+        li, p {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+
