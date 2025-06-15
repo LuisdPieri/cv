@@ -210,4 +210,23 @@
           page-break-inside: avoid;
           break-inside: avoid;
         }
+        #curriculo {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 20px;
+        }
 
+        [id]::before {
+        content: "";
+        display: block;
+        height: 56px;
+        margin-top: -56px;
+        visibility: hidden;
+      }
+      
+      .emp_ital {
+        font-weight: normal;
+        font-style: italic;
+        margin-bottom: -15px;
+        text-decoration: underline;
+      }
